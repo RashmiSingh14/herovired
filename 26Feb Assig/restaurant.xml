@@ -1,0 +1,42 @@
+
+<!-- < restaurant name="yellow chilli" address="new delhi" lat="47.608940" lng="-122.340141" type="sitdown"/> -->
+<!-- Prolog -->
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<restaurants>
+    <restaurant>
+        <name>Yellow Chilli</name>
+        <address>New Delhi</address>
+        <lat>47.608940</lat>
+        <lng>-122.340141</lng>
+        <type>Sit Down</type>
+    </restaurant>
+    <restaurant>
+        <name>Hint Lounge</name>
+        <address>Bangalore</address>
+        <lat>47.608940</lat>
+        <lng>-122.340141</lng>
+        <type>Bar</type>
+    </restaurant>
+    <restaurant>
+        <name>World of My Bar</name>
+        <address>New Delhi</address>
+        <lat>47.608940</lat>
+        <lng>-122.340141</lng>
+        <type>Bar</type>
+    </restaurant>
+    <restaurant>
+        <name>Bhojori Manna</name>
+        <address>Kolkata</address>
+        <lat>47.608940</lat>
+        <lng>-122.340141</lng>
+        <type>Sit Down</type>
+    </restaurant>
+    <restaurant >
+        <name>One Bottle Down</name>
+        <address>Kolkata</address>
+        <lat>47.608940</lat>
+        <lng>-122.340141</lng>
+        <type>Bar</type>
+    </restaurant>
+</restaurants>
+

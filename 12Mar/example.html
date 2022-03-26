@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <style>
+        .box{
+            /* position: relative; */
+            /* border:1px solid red; */
+            /* height:100px;
+            width: 200px; */
+            display: flex;
+            padding: 15px;
+            align-items: center;
+            justify-content: center;
+           
+
+            
+        }
+
+        .inner-box{
+
+            position: relative;
+        }
+        
+        .inner-box img{
+            border-radius: 20px;
+            height: 500px;
+            width: 200px;
+            margin:10px;
+            flex: 0.5;
+            transition: width 1s ease-in-out 0s;
+            align-items: center;
+            cursor: pointer;
+        }
+
+         img:hover{
+            width: 600px;
+            
+        }
+
+        .inner-box h4{
+            position:absolute;
+            /* display: none; */
+            bottom: 0px;
+            left: 20px;
+        }
+
+       
+
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <div class="inner-box">
+            <img src="img/pic1.jpg">
+            <h4>Image1</h4>
+
+        </div>
+        <div class="inner-box">
+            <img src="img/pic2.jpg">
+            <h4>Image2</h4>
+        </div>
+        <div class="inner-box">
+            <img src="img/pic3.jpg">
+            <h4>Image3</h4>
+        </div>
+        <div class="inner-box">
+            <img src="img/pic4.jpg">
+            <h4>Image4</h4>
+        </div>
+    </div>
+
+</body>
+
+</html>

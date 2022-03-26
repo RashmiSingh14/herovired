@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+
+        <style>
+            *{
+                padding: 0px;
+                margin: 0px;
+            }
+
+            #box{
+                padding: 20px;
+                background-color: aqua;
+                color: black;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="box">
+            <p>ajhskjhfeksgierifksdnfseg. ajfnkjnsenfm,snfjen.</p>
+        <!-- <button id="btn">Change Color</button> -->
+        <button id="btn" >Remove</button>
+    </div>
+    <div id="resultArea">
+
+    </div>
+
+<script>
+            
+
+            function changeColor(){
+                let box = document.getElementById("box");
+                box.style.backgroundColor='pink';
+            }
+
+            function randomNo(){
+               // let area = document.getElementById("resultArea");
+               // area.innerHTML=  Math.floor(Math.random()* 1000);
+               document.getElementById("resultArea").innerHTML = abc;
+            }
+
+            let btn = document.getElementById("btn");
+            let box = document.getElementById("box");
+
+           // btn.onclick = changeColor;
+           //btn.addEventListener("click", changeColor);
+    
+
+        //ele.removeEventListener("mousemove", myFunction);
+            box.addEventListener("mousemove", randomNo);
+            box.removeEventListener("mousemove", randomNo);
+             
+
+        </script>
+    </body>
+</html>

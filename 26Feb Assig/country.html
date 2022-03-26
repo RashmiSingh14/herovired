@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Get Population</title>
+
+        <style>
+            #countryList{
+                color: blue;
+                padding: 15px;
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Know the Population of any Country</h1>
+
+        <input type="text" id="pop" placeholder="country name" required>
+        <button onclick="getPopulation()">Add</button>
+
+        <h3>Country  : Population</h3>
+        <ol id="countryList">
+            
+        </ol>
+
+        <script>
+            var ol = "";
+            function getPopulation(){
+                var name = (document.getElementById("pop").value).toLowerCase();
+                console.log(name);
+                
+                // var postId = document.getElementById("postId").value;
+                var xhttp = new XMLHttpRequest();
+                var url = "https://restcountries.com/v3.1/name/" + name;
+
+                xhttp.open("GET", url, true);
+                xhttp.send();
+
+                xhttp.onreadystatechange = function () {
+                                       
+                    if (xhttp.readyState !== 4){
+                        console.log(" Current State : ", xhttp.readyState);
+                    } 
+
+                    if (xhttp.readyState === 4 && xhttp.status === 200) {
+                        
+                        console.log("Parse data : ",JSON.parse(xhttp.response));
+                        var list = JSON.parse(xhttp.response);
+                        let flag = false;
+                       
+                        list.forEach(element => {
+                            console.log(element);
+                            var countryName = (element.name.common).toLowerCase();
+                            var tld = element.tld[0];
+                            tld = tld.replace(".","").toLowerCase();
+                            console.log("tld : ",tld);
+
+                            if(countryName === name || tld === name){
+                                
+                                var pop = element.population;
+                                
+                                ol += "<li>" +countryName.toUpperCase() +" : " + pop +"</li>";
+                                flag = true;
+                                
+                            } 
+                            
+                        });
+                        document.getElementById("countryList").innerHTML = ol;
+                        document.getElementById("pop").value = "";
+
+                        if(!flag){
+                                window.alert("Sorry, not able to get population. Please try some other name.");
+                            }
+
+                        
+
+                        
+
+                    }
+                };
+
+
+
+            }
+        </script>
+    </body>
+</html>

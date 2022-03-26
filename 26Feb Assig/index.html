@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ajax call</title>
+
+        <style>
+            .sitdown{
+                color: green;
+            }
+
+            .bar{
+                color: red;
+            }
+
+            ul>li{
+                list-style: none;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body id="loadData">
+        <h1>List of restaurants (<span style="color: red;">Bar, </span>
+                                <span style="color: green;">Sit Down</span>)
+        </h1>
+        <ul id="dataList">
+
+        </ul>
+        
+        <script>
+            document.getElementById("loadData").onload = function(){
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                            // callRestaurant(this);
+                            var xmlDoc = this.responseXML;
+                            var ul = "<li> <h2>NAME  -- ADDRESS </h2></li>" ;
+                        var x = xmlDoc.getElementsByTagName("restaurant");
+                        for(var i=0; i< x.length; i++ ){
+                            var type = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+                            
+                            
+                            if(type==="Sit Down"){
+
+                                 ul += "<li class='sitdown'>" + x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+                                     " -- " +  x[i].getElementsByTagName("address")[0].childNodes[0].nodeValue + "</li>"
+                            
+                            } else if(type === "Bar"){
+
+                                ul += "<li class='bar'>" + x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+                                     " -- " +  x[i].getElementsByTagName("address")[0].childNodes[0].nodeValue + "</li>"
+                            }
+                                 
+                            
+                            
+                        }
+
+                        document.getElementById("dataList").innerHTML = ul;
+
+                   }
+                };
+                xhttp.open("GET","restaurant.xml", true);
+                xhttp.send();
+
+            };
+
+            // function callRestaurant(xml) {
+            //     var xmlDoc = xml.responseXML;
+            //     var x = xmlDoc.getElementsByTagName("restaurants");
+            //     for(var i=0; i< x.length; i++ ){
+            //         ul += "<li>" + x[i].getElementsByTagName("name")[0].nodeValue + "</li>"
+            //     }
+
+            //     document.getElementById("dataList").innerHTML = ul;
+            // }
+        </script>
+    </body>
+</html>
